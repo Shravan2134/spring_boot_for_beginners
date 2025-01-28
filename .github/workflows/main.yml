@@ -31,7 +31,7 @@ jobs:
           mvn -B package --file pom.xml
 
       - name: build the dcoker
-        run: action/build-push-docker-action@v2
+        uses: action/build-push-docker-action@v2
         with:
           context: .
           file: Dockerfile
