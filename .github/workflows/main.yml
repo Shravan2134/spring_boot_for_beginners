@@ -31,7 +31,7 @@ jobs:
           mvn -B package --file pom.xml
           
       - name: Build Docker Image
-        uses: actions/build-push-docker-action@v2
+        uses: docker/build-push-action@v2
         with:
           context: .
           file: Dockerfile
@@ -39,7 +39,7 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-for-beginners:latest
        
       - name: login to dockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}    
